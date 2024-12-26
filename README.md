@@ -1,7 +1,16 @@
-
 # Naitëvarna
 
+
 **Naitëvarna** is a Python-based encryption tool focused on securing sensitive data using AES encryption. This project leverages the `PyCryptodome` library for cryptographic operations and the `cryptography` package for key derivation using PBKDF2 (Password-Based Key Derivation Function 2). The tool is designed to encrypt and decrypt JSON-based user data securely, with an emphasis on password management applications.
+
+
+# Installation
+
+- [Windows][null] *No versions available yet for the GUI application.*
+- [Linux][null] *No versions available yet for the GUI application.*
+Currently, there won't be any versions available for Apple, I hate apple products with a fury of a thousand suns.
+Just kidding! But seriously, [here you go](https://youtu.be/dQw4w9WgXcQ?si=qKYZFide42rUtwAM).
+
 
 ## Requirements
 
@@ -13,83 +22,8 @@ Install the dependencies using `pip`:
 
 ```bash```
 ``` pip install pycryptodome cryptography```
+In the future, these requirements will be automatically installed via an installer (e.g., .msi or .exe for Windows, and .deb or .rpm for Linux).
 
-# Features
- - AES encryption with a user-provided password.
- - Key derivation using PBKDF2 for better security.
- - Padding and unpadding of data for compatibility with AES.
- - Save and load encrypted data to/from files.
- - Example implementation for encrypting and decrypting password manager entries.
-
-# Security
-## Password generation
-Naitëvarna can generate passwords and you can measure their strength using these:
-- [zxcvbn](https://github.com/dropbox/zxcvbn)
-- [How Secure Is My Password?](https://howsecureismypassword.net/)
-- [Password Meter](https://www.passwordmeter.com/)
-- [Have I Been Pwned?](https://haveibeenpwned.com/Passwords)
-- [Your Password is Easy](https://yourpasswordiseasy.com) **COMING SOON!!**
-
-
-# API
-Naitëvarna would soon offer a developer API option for integrating the encryption functionality into other applications. You can use the provided functions in your own projects to secure sensitive data.
-
-# Security Considerations
-Ensure that the password used for encryption is strong and kept secret.
-The salt and IV are randomly generated for each encryption and should be unique for every use.
-
-This tool is intended for local, secure storage and management of sensitive data. It should not be used for cloud-based storage without additional precautions.
-
-
-# License
-This project is licensed under the MIT License.
-
-# Support Naitëvarna
-Naitëvarna is open-source, but we gladly accept donations! If you'd like to support the project, please consider buying us a beer or a pizza:
-PayPal
-Patreon
-
-# Code Reviews
-If you have any improvements to the code:
-
-Clone the repository
-Make your edits
-Add your name to the contributors list
-Submit a Pull Request (PR) and feel free to inform us about any issues you find
-
-
-# Docker
-To run Naitëvarna in a Docker container:
-
-Build the Docker image:
-```bash```
-Copy code
-```docker build -t naitvevarna .```
-Run the container:
-```bash```
-Copy code
-```docker run -p 8080:8080 naitvevarna```
-The application will be accessible via port 8080.
-You can customize the ports by modifying the Docker configuration if needed.
-
-# Contributing
-Feel free to fork this repository and submit pull requests. Any improvements, bug fixes, or feature requests are welcome!
-
-
-# Naitëvarna
-
-**Naitëvarna** is a Python-based encryption tool focused on securing sensitive data using AES encryption. This project leverages the `PyCryptodome` library for cryptographic operations and the `cryptography` package for key derivation using PBKDF2 (Password-Based Key Derivation Function 2). The tool is designed to encrypt and decrypt JSON-based user data securely, with an emphasis on password management applications.
-
-## Requirements
-
-- Python 3.x
-- `pycryptodome`
-- `cryptography`
-
-Install the dependencies using `pip`:
-
-```bash```
-``` pip install pycryptodome cryptography```
 
 ### Features
 
@@ -102,6 +36,7 @@ Install the dependencies using `pip`:
 
 
 # Security
+
 ## Password generation
 Naitëvarna can generate passwords and you can measure their strength using these:
 - [zxcvbn](https://github.com/dropbox/zxcvbn)
@@ -114,6 +49,7 @@ Naitëvarna can generate passwords and you can measure their strength using thes
 # API
 Naitëvarna would soon offer a developer API option for integrating the encryption functionality into other applications. You can use the provided functions in your own projects to secure sensitive data.
 
+
 # Security Considerations
 Ensure that the password used for encryption is strong and kept secret.
 The salt and IV are randomly generated for each encryption and should be unique for every use.
@@ -122,12 +58,23 @@ This tool is intended for local, secure storage and management of sensitive data
 
 
 # License
-This project is licensed under the MIT License.
+
+The MIT License is chosen because of its simplicity and permissiveness, allowing anyone to freely use, modify, and distribute the code. It supports both open-source and commercial use without requiring the release of source code for derivative works. This approach encourages wide adoption and contribution while providing flexibility for users and developers alike.
 
 # Support Naitëvarna
+
 Naitëvarna is open-source, but we gladly accept donations! If you'd like to support the project, please consider buying us a beer or a pizza:
-PayPal
-Patreon
+[PayPal](https://paypal.com)
+[Patreon](https://patreon.com)
+
+
+
+# Docker
+
+Naitëvarna will soon offer a Docker implementation for easier deployment and management. This will allow you to run Naitëvarna in a containerized environment, ensuring better portability and ease of use across different platforms.
+
+You can customize the ports by modifying the Docker configuration if needed. Please refer to the `docker-compose.yml` file to adjust the configuration according to your specific requirements.
+
 
 # Code Reviews
 If you have any improvements to the code:
@@ -137,21 +84,7 @@ Make your edits
 Add your name to the contributors list
 Submit a Pull Request (PR) and feel free to inform us about any issues you find
 
-
-# Docker
-To run Naitëvarna in a Docker container:
-
-Build the Docker image:
-```bash```
-Copy code
-```docker build -t naitvevarna .```
-Run the container:
-```bash```
-Copy code
-```docker run -p 8080:8080 naitvevarna```
-The application will be accessible via port 8080.
-You can customize the ports by modifying the Docker configuration if needed.
-
 # Contributing
 Feel free to fork this repository and submit pull requests. Any improvements, bug fixes, or feature requests are welcome!
+
 
