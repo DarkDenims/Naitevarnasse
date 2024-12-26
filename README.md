@@ -10,6 +10,7 @@
 - [Linux](null) *No versions available yet for the GUI application.*
 
 There isn't a Current Version for Apple nor will there will ever be, I hate Apple products with a fury of a thousand suns.
+
 Just kidding! But seriously, [here you go](https://youtu.be/dQw4w9WgXcQ?si=qKYZFide42rUtwAM).
 
 
@@ -23,6 +24,7 @@ Install the dependencies using `pip`:
 
 ```bash```
 ``` pip install pycryptodome cryptography```
+
 In the future, these requirements will be automatically installed via an installer (e.g., .msi or .exe for Windows, and .deb or .rpm for Linux).
 
 
@@ -39,6 +41,7 @@ In the future, these requirements will be automatically installed via an install
 # Security
 
 ## Password generation
+
 Naitëvarnasse can generate passwords and you can measure their strength using these:
 - [zxcvbn](https://github.com/dropbox/zxcvbn)
 - [How Secure Is My Password?](https://howsecureismypassword.net/)
@@ -48,10 +51,12 @@ Naitëvarnasse can generate passwords and you can measure their strength using t
 
 
 # API
+
 Naitëvarnasse would soon offer a developer API option for integrating the encryption functionality into other applications. You can use the provided functions in your own projects to secure sensitive data.
 
 
 # Security Considerations
+
 Ensure that the password used for encryption is strong and kept secret.
 The salt and IV are randomly generated for each encryption and should be unique for every use.
 
@@ -69,6 +74,7 @@ You can customize the ports by modifying the Docker configuration if needed. Ple
 
 The MIT License is chosen because of its simplicity and permissiveness, allowing anyone to freely use, modify, and distribute the code. It supports both open-source and commercial use without requiring the release of source code for derivative works. This approach encourages wide adoption and contribution while providing flexibility for users and developers alike.
 
+
 # Support Naitëvarna
 
 Naitëvarnasse is open-source, but we gladly accept donations! If you'd like to support the project, please consider buying us a beer or a pizza:
@@ -77,6 +83,7 @@ Naitëvarnasse is open-source, but we gladly accept donations! If you'd like to 
 
 
 # Code Reviews
+
 If you have any improvements to the code:
 
 Clone the repository
@@ -86,6 +93,7 @@ Submit a Pull Request (PR) and feel free to inform us about any issues you find
 
 
 # Contributing
+
 Feel free to fork this repository and submit pull requests. Any improvements, bug fixes, or feature requests are welcome!
 
 
