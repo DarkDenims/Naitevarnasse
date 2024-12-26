@@ -6,8 +6,8 @@
 
 # Installation
 
-- [Windows][null] *No versions available yet for the GUI application.*
-- [Linux][null] *No versions available yet for the GUI application.*
+- [Windows](null) *No versions available yet for the GUI application.*
+- [Linux](null) *No versions available yet for the GUI application.*
 
 Currently, there won't be any versions available for Apple, I hate Apple products with a fury of a thousand suns.
 Just kidding! But seriously, [here you go](https://youtu.be/dQw4w9WgXcQ?si=qKYZFide42rUtwAM).
