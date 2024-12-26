@@ -1,7 +1,7 @@
-# Naitëvarna
+# Naitëvarnasse
 
 
-**Naitëvarna** is a Python-based encryption tool focused on securing sensitive data using AES encryption. This project leverages the `PyCryptodome` library for cryptographic operations and the `cryptography` package for key derivation using PBKDF2 (Password-Based Key Derivation Function 2). The tool is designed to encrypt and decrypt JSON-based user data securely, with an emphasis on password management applications.
+**Naitëvarnasse** *(or True Safety in Sindarin*) is a Python-based encryption tool focused on securing sensitive data using AES encryption. This project leverages the `PyCryptodome` library for cryptographic operations and the `cryptography` package for key derivation using PBKDF2 (Password-Based Key Derivation Function 2). The tool is designed to encrypt and decrypt JSON-based user data securely, with an emphasis on password management applications.
 
 
 # Installation
@@ -39,7 +39,7 @@ In the future, these requirements will be automatically installed via an install
 # Security
 
 ## Password generation
-Naitëvarna can generate passwords and you can measure their strength using these:
+Naitëvarnasse can generate passwords and you can measure their strength using these:
 - [zxcvbn](https://github.com/dropbox/zxcvbn)
 - [How Secure Is My Password?](https://howsecureismypassword.net/)
 - [Password Meter](https://www.passwordmeter.com/)
@@ -48,7 +48,7 @@ Naitëvarna can generate passwords and you can measure their strength using thes
 
 
 # API
-Naitëvarna would soon offer a developer API option for integrating the encryption functionality into other applications. You can use the provided functions in your own projects to secure sensitive data.
+Naitëvarnasse would soon offer a developer API option for integrating the encryption functionality into other applications. You can use the provided functions in your own projects to secure sensitive data.
 
 
 # Security Considerations
@@ -58,23 +58,22 @@ The salt and IV are randomly generated for each encryption and should be unique 
 This tool is intended for local, secure storage and management of sensitive data. It should not be used for cloud-based storage without additional precautions.
 
 
+# Docker
+
+Naitëvarna will soon offer a Docker implementation for easier deployment and management. This will allow you to run Naitëvarna in a containerized environment, ensuring better portability and ease of use across different platforms.
+
+You can customize the ports by modifying the Docker configuration if needed. Please refer to the `docker-compose.yml` file to adjust the configuration according to your specific requirements.
+
+
 # License
 
 The MIT License is chosen because of its simplicity and permissiveness, allowing anyone to freely use, modify, and distribute the code. It supports both open-source and commercial use without requiring the release of source code for derivative works. This approach encourages wide adoption and contribution while providing flexibility for users and developers alike.
 
 # Support Naitëvarna
 
-Naitëvarna is open-source, but we gladly accept donations! If you'd like to support the project, please consider buying us a beer or a pizza:
+Naitëvarnasse is open-source, but we gladly accept donations! If you'd like to support the project, please consider buying us a beer or a pizza:
 [PayPal](https://paypal.com)
 [Patreon](https://patreon.com)
-
-
-
-# Docker
-
-Naitëvarna will soon offer a Docker implementation for easier deployment and management. This will allow you to run Naitëvarna in a containerized environment, ensuring better portability and ease of use across different platforms.
-
-You can customize the ports by modifying the Docker configuration if needed. Please refer to the `docker-compose.yml` file to adjust the configuration according to your specific requirements.
 
 
 # Code Reviews
@@ -84,6 +83,7 @@ Clone the repository
 Make your edits
 Add your name to the contributors list
 Submit a Pull Request (PR) and feel free to inform us about any issues you find
+
 
 # Contributing
 Feel free to fork this repository and submit pull requests. Any improvements, bug fixes, or feature requests are welcome!
