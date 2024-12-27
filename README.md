@@ -1,7 +1,7 @@
 # Naitëvarnasse
 
 
-**Naitëvarnasse** *(or True Safety in Sindarin*) is a Python-based encryption tool focused on securing sensitive data using AES encryption. This project leverages the `PyCryptodome` library for cryptographic operations and the `cryptography` package for key derivation using PBKDF2 (Password-Based Key Derivation Function 2). The tool is designed to encrypt and decrypt JSON-based user data securely, with an emphasis on password management applications.
+**Naitëvarnasse** *(or True Safety in Sindarin*) is an encryption tool focused on securing sensitive data using AES encryption. The tool is designed to encrypt and decrypt JSON-based user data securely, with an emphasis on password management applications.
 
 
 # Installation
