@@ -6,14 +6,15 @@ class VaultManager:
     def __init__(self, data_file='data.json'):
         self.data_file = data_file
 
-    def display_vault(self):
+    def displayVault(self):
         with open(self.data_file, 'r') as file:
             data = json.load(file)
         
         users = data.get("users", [])
         
-        headers = ["Username", "Password", "Email"]
+        headers = ["ID", "Username", "Password", "Email"]
         rows = [[
+                d.get("id", ""),
                 d.get("username", ""),
                 d.get("password", ""),
                 d.get("email", "")
@@ -22,7 +23,7 @@ class VaultManager:
         
         print(tabulate(rows, headers=headers, tablefmt="grid"))
 
-    def add_credentials(self, username, password, email):
+    def addNewCredentials(self, username, password, email):
         with open(self.data_file, 'r+') as file:
             data = json.load(file)
             data.append({

@@ -1,6 +1,7 @@
 import bcrypt
 import json
 import os
+import uuid
 from .passwordValidator import PasswordValidator
 
 class UserHandling:
@@ -44,6 +45,7 @@ class UserHandling:
                         data = json.load(f)
 
                     newUser = {
+                        "id": str(uuid.uuid4()),
                         "email": email,
                         "username": username,
                         "password": hashed_password.decode('utf-8')  # store the hashed password as a string
@@ -82,13 +84,26 @@ class UserHandling:
 
         except Exception as e:
             print(f"Login error: {e}")
-            return False
+            return 
+    
+    def emailTaken(self, email):
+        with open(self.dataFile, 'r') as f:
+            data = json.load(f)
+        for user in data.get("users", []):
+            if user["email"] == email:
+                return True
+        return False
+    
+    def usernameTaken(self, username):
+        with open(self.dataFile, 'r') as f:
+            data = json.load(f)
+        for user in data.get("users", []):
+            if user["username"] == username:
+                return True
+        return False
 
-if __name__ == "__main__":
-    user_handler = UserHandling()
 
-    user_handler.createUser()
-
-    username = input("\nEnter username to login: ")
-    password = input("Enter password to login: ")
-    user_handler.verifyLogin(username, password)
+# Problem 1: multiple users with same username and email
+# Problem 2: storing passwords in plaintext(fix when i have GUI?)
+# Problem 3: I still don't have a way to store the credentials according
+# to the user. I need to figure out a way to do that.

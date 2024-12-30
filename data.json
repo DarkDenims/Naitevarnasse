@@ -1,49 +1,10 @@
 {
     "users": [
         {
-            "username": "test1",
-            "password": "Pass!?;",
-            "email": "example@email.com"
-        },
-        {
-            "email": "test2@gmail.com",
-            "username": "test2",
-            "password": "Pass1?;"
-        },
-        {
-            "email": "test3",
-            "username": "test3@gmail.com",
-            "password": "Pass!?;"
-        },
-        {
-            "email": "test4@gmail.com",
-            "username": "test4",
-            "password": "a"
-        },
-        {
-            "email": "test5@gmail.com",
-            "username": "test5",
-            "password": "a"
-        },
-        {
-            "email": "test6",
-            "username": "test6",
-            "password": "a"
-        },
-        {
-            "email": "test6",
-            "username": "test6",
-            "password": "a"
-        },
-        {
+            "id": "44e90ef5-6b9d-4554-8c7c-78c28b868580",
             "email": "test",
             "username": "test",
-            "password": "$2b$12$FA5ORFKQCjU82LPnpXusFuFomUQ6bJ6NpZYhMAW6fboCx7CYoN0Z."
-        },
-        {
-            "email": "test",
-            "username": "test",
-            "password": "$2b$12$GqHb2Qmh5PKZC4hRMa6pIeSvORBvt6u6sijmoHtaLL1sI0oLxng2."
+            "password": "$2b$12$CG.xTXP3PAJLjJh9/G05HOaEUiCiPZewme.GRg97G.Xf9Yavy3dXO"
         }
     ],
     "keys": {
