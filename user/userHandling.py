@@ -8,6 +8,8 @@ class UserHandling:
     def __init__(self, dataFile='data.json'):
         self.dataFile = dataFile
         self.passwordValidator = PasswordValidator()
+        self.dataDir = os.path.dirname(self.dataFile)
+        self.userAppsDir = os.path.join(self.dataDir, 'userApps')
         self._ensureDataFile()
 
     def _ensureDataFile(self):
@@ -55,6 +57,10 @@ class UserHandling:
 
                     with open(self.dataFile, 'w') as f:
                         json.dump(data, f, indent=4)
+                    
+                    userFile = os.path.join(self.userAppsDir, f"user__{newUser['id']}.json")
+                    with open(userFile, 'w') as file:
+                        json.dump({"passwords": []}, file)
                     
                     print(f"User '{username}' created successfully!")
                     return newUser

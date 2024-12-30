@@ -1,10 +1,28 @@
 {
     "users": [
         {
-            "id": "44e90ef5-6b9d-4554-8c7c-78c28b868580",
+            "id": "ee9a5fa9-5f55-42b3-b08f-1836eaed223b",
+            "email": "tester",
+            "username": "tester",
+            "password": "$2b$12$Y.eQkIW010y0Y4TR0LP.yuc60f8tjgn621FHkY42ef/ncBixqIDze"
+        },
+        {
+            "id": "8ace5de8-b177-40ac-8344-ce2b6cbaf8cb",
             "email": "test",
             "username": "test",
-            "password": "$2b$12$CG.xTXP3PAJLjJh9/G05HOaEUiCiPZewme.GRg97G.Xf9Yavy3dXO"
+            "password": "$2b$12$pFIBrc8mml8pRgn2IgYLAuKGR1/ANTWGj.JKsZVFp7oxusG3LvdTS"
+        },
+        {
+            "id": "080857ac-861f-4c80-b2e5-e3117fb5389f",
+            "email": "test",
+            "username": "test",
+            "password": "$2b$12$IQzyavAsoTdWq/X7wNLfe.i3bNr2NsoRu0OImStZfsnITHjNVAf3i"
+        },
+        {
+            "id": "051a60b6-2505-4b68-8ce8-2eee0d019a2f",
+            "email": "test",
+            "username": "test",
+            "password": "$2b$12$o2US3Qnxbqj9TTVnuviOcOvPMalemwYk1tThYsuiIPKuuzgboD6jG"
         }
     ],
     "keys": {
