@@ -32,3 +32,6 @@ class VaultManager:
             })
             file.seek(0)
             json.dump(data, file, indent=4)
+
+    # the problem here is that we need to create new files for each users
+    # as the data shouldn't be shared throughout all users
