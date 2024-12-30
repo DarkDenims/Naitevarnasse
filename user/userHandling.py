@@ -1,24 +1,28 @@
-from .passwordValidator import PasswordValidator
+import bcrypt
 import json
 import os
+from .passwordValidator import PasswordValidator
 
-class UserHandler:
-    def __init__(self, data_file='data.json'):
-        self.data_file = data_file
+class UserHandling:
+    def __init__(self, dataFile='data.json'):
+        self.dataFile = dataFile
         self.passwordValidator = PasswordValidator()
-        self._ensure_data_file()
+        self._ensureDataFile()
 
-    def _ensure_data_file(self):
-        if not os.path.exists(self.data_file):
-            with open(self.data_file, 'w') as f:
-                json.dump([], f)
+    def _ensureDataFile(self):
+        if not os.path.exists(self.dataFile):
+            with open(self.dataFile, 'w') as f:
+                json.dump({"users": []}, f)
 
-    def create_user(self):
+    def createUser(self):
         try:
             print("\n=== User Registration ===")
             email = input('Enter email: ')
             username = input('Enter username: ')
-            
+
+            self._ensureDataFile()
+            # sanity check
+
             while True:
                 print("\nPassword requirements:")
                 print("- At least 8 characters")
@@ -26,61 +30,65 @@ class UserHandler:
                 print("- Numbers and special characters")
                 
                 password = input('Enter password: ')
-                confirm_password = input('Confirm password: ')
-                
-                if password != confirm_password:
+                confirmPassword = input('Confirm password: ')
+
+                if password != confirmPassword:
                     print("Passwords don't match!")
                     continue
 
-                if self.passwordValidator.validate(password):
-                    # Read existing data
-                    if os.path.exists(self.data_file):
-                        with open(self.data_file, 'r') as f:
-                            try:
-                                data = json.load(f)
-                            except json.JSONDecodeError:
-                                data = {"users": []}
-                    else:
-                        data = {"users": []}
+                is_valid, errors = self.passwordValidator.validate(password)
+                if is_valid:
+                    hashed_password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
 
-                    # Add new user
-                    new_user = {
+                    with open(self.dataFile, 'r') as f:
+                        data = json.load(f)
+
+                    newUser = {
                         "email": email,
                         "username": username,
-                        "password": password  # In production, hash this password
+                        "password": hashed_password.decode('utf-8')  # store the hashed password as a string
                     }
 
-                    if "users" not in data:
-                        data["users"] = []
-                    
-                    data["users"].append(new_user)
+                    data["users"].append(newUser)
 
-                    # Write back to file
-                    with open(self.data_file, 'w') as f:
+                    with open(self.dataFile, 'w') as f:
                         json.dump(data, f, indent=4)
                     
-                    return new_user
+                    print(f"User '{username}' created successfully!")
+                    return newUser
                 else:
                     print("\nPassword does not meet requirements!")
-                    
+                    print("Errors:", errors)
+
                 if input("\nTry again? (y/n): ").lower() != 'y':
                     return None
-                    
+
         except Exception as e:
             print(f"Error creating user: {e}")
             return None
 
-    def verify_login(self, username, password):
+    def verifyLogin(self, username, password):
         try:
-            with open(self.data_file, 'r') as f:
+            with open(self.dataFile, 'r') as f:
                 data = json.load(f)
-                
-            if "users" in data:
-                for user in data["users"]:
-                    if user["username"] == username and user["password"] == password:
+
+            for user in data["users"]:
+                if user["username"] == username:
+                    if bcrypt.checkpw(password.encode('utf-8'), user["password"].encode('utf-8')):
+                        print(f"Login successful for {username}!")
                         return True
+            print("Invalid username or password.")
             return False
-            
+
         except Exception as e:
             print(f"Login error: {e}")
             return False
+
+if __name__ == "__main__":
+    user_handler = UserHandling()
+
+    user_handler.createUser()
+
+    username = input("\nEnter username to login: ")
+    password = input("Enter password to login: ")
+    user_handler.verifyLogin(username, password)

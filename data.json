@@ -14,6 +14,36 @@
             "email": "test3",
             "username": "test3@gmail.com",
             "password": "Pass!?;"
+        },
+        {
+            "email": "test4@gmail.com",
+            "username": "test4",
+            "password": "a"
+        },
+        {
+            "email": "test5@gmail.com",
+            "username": "test5",
+            "password": "a"
+        },
+        {
+            "email": "test6",
+            "username": "test6",
+            "password": "a"
+        },
+        {
+            "email": "test6",
+            "username": "test6",
+            "password": "a"
+        },
+        {
+            "email": "test",
+            "username": "test",
+            "password": "$2b$12$FA5ORFKQCjU82LPnpXusFuFomUQ6bJ6NpZYhMAW6fboCx7CYoN0Z."
+        },
+        {
+            "email": "test",
+            "username": "test",
+            "password": "$2b$12$GqHb2Qmh5PKZC4hRMa6pIeSvORBvt6u6sijmoHtaLL1sI0oLxng2."
         }
     ],
     "keys": {

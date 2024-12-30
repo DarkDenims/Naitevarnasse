@@ -1,13 +1,13 @@
-from user.userHandling import UserHandler
+from user.userHandling import UserHandling
 from vault.vaultManager import VaultManager
 
 class PasswordManager:
     def __init__(self):
-        self.userHandling = UserHandler()
+        self.userHandling = UserHandling()
         self.vaultManager = VaultManager()
-        self.loggedIN = False
+        self.loggedIn = False
 
-    def main_menu(self):
+    def mainMenu(self):
         while True:
             print("\n=== Password Manager ===")
             print("[S]ignup")
@@ -33,23 +33,23 @@ class PasswordManager:
             username = input("Username: ")
             password = input("Password: ")
             
-            if self.userHandling.verify_login(username, password):
+            if self.userHandling.verifyLogin(username, password):
                 self.loggedIn = True
-                self.vault_menu()
+                self.vaultMenu()
                 break
             
             attempts -= 1
             print(f"Invalid credentials! {attempts} attempts remaining.")
 
     def signup(self):
-        user_data = self.userHandling.create_user()
-        if user_data:
+        userData = self.userHandling.createUser()
+        if userData:
             # Save user data
             print("Registration successful!")
         else:
             print("Registration cancelled.")
 
-    def vault_menu(self):
+    def vaultMenu(self):
         while self.loggedIn:
             print("\n=== Vault Menu ===")
             print("[D]isplay Vault")
@@ -61,11 +61,11 @@ class PasswordManager:
             choice = input("Choice: ").lower()
             
             if choice == 'd':
-                self.vaultManager.display_vault()
+                self.vaultManager.displayVault()
             elif choice == 'n':
-                self.add_new_credentials()
+                self.addNewCredentials()
             elif choice == 'a':
-                self.archive_credentials()
+                self.archiveCredentials()
             elif choice == 'l':
                 self.loggedIn = False
             elif choice == 'e':
@@ -74,16 +74,14 @@ class PasswordManager:
             else:
                 print("Invalid choice!")
 
-    def add_new_credentials(self):
+    def addNewCredentials(self):
         print("\n=== Add New Credentials ===")
-        # Implement credential addition
         pass
 
-    def archive_credentials(self):
+    def archiveCredentials(self):
         print("\n=== Archive Credentials ===")
-        # Implement archive functionality
         pass
 
 if __name__ == "__main__":
     manager = PasswordManager()
-    manager.main_menu()
+    manager.mainMenu()
