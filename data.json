@@ -9,6 +9,11 @@
             "email": "test2@gmail.com",
             "username": "test2",
             "password": "Pass1?;"
+        },
+        {
+            "email": "test3",
+            "username": "test3@gmail.com",
+            "password": "Pass!?;"
         }
     ],
     "keys": {
