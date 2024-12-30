@@ -18,3 +18,6 @@ class PasswordValidator:
             errors.append("Must contain special character")
         
         return (len(errors) == 0, errors)
+    
+    # okay this is weird cause the password validator
+    # is not validating the passwords at all LMAO
