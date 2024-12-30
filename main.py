@@ -3,9 +3,9 @@ from vault.vaultManager import VaultManager
 
 class PasswordManager:
     def __init__(self):
-        self.user_handler = UserHandler()
-        self.vault_manager = VaultManager()
-        self.logged_in = False
+        self.userHandling = UserHandler()
+        self.vaultManager = VaultManager()
+        self.loggedIN = False
 
     def main_menu(self):
         while True:
@@ -34,7 +34,7 @@ class PasswordManager:
             password = input("Password: ")
             
             if self.userHandling.verify_login(username, password):
-                self.logged_in = True
+                self.loggedIn = True
                 self.vault_menu()
                 break
             
@@ -50,7 +50,7 @@ class PasswordManager:
             print("Registration cancelled.")
 
     def vault_menu(self):
-        while self.logged_in:
+        while self.loggedIn:
             print("\n=== Vault Menu ===")
             print("[D]isplay Vault")
             print("[N]ew Credentials")
@@ -67,9 +67,9 @@ class PasswordManager:
             elif choice == 'a':
                 self.archive_credentials()
             elif choice == 'l':
-                self.logged_in = False
+                self.loggedIn = False
             elif choice == 'e':
-                self.logged_in = False
+                self.loggedIn = False
                 exit()
             else:
                 print("Invalid choice!")

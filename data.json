@@ -1,4 +1,16 @@
 {
+    "users": [
+        {
+            "username": "test1",
+            "password": "Pass!?;",
+            "email": "example@email.com"
+        },
+        {
+            "email": "test2@gmail.com",
+            "username": "test2",
+            "password": "Pass1?;"
+        }
+    ],
     "keys": {
         "123": {
             "key": "MTIzOjIwMjQtMTItMjhUMTE6NTM6NTEuNjIyMTc4Ypk=",
