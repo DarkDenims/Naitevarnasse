@@ -22,22 +22,6 @@ class VaultManager:
 
         print(tabulate(rows, headers=headers, tablefmt="grid"))
 
-    def unHash(self):
-        with open(self.data_file, 'r') as file:
-            data = json.load(file)
-    
-        users = data.get("users", [])
-        
-        headers = ["ID", "Username", "Password", "Email"]
-        rows = [[
-                d.get("id", ""),
-                d.get("username", ""),
-                d.get("password", ""), #how do i un-hash this part with bcrypt?
-                d.get("email", "")
-            ] for d in users]
-
-        print(tabulate(rows, headers=headers, tablefmt="grid"))
-        
     def addNewCredentials(self, username, password, email):
         hashed_password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
 
