@@ -113,3 +113,8 @@ class UserHandling:
 # Problem 2: storing passwords in plaintext(fix when i have GUI?)
 # Problem 3: I still don't have a way to store the credentials according
 # to the user. I need to figure out a way to do that.
+
+
+# i was wrong i dont need to make a new instance per User that's for the Cloud version
+# what im trying to create is a standalone version in the first place
+

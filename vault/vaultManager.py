@@ -43,7 +43,3 @@ class VaultManager:
                     stored_password = user.get("password", "")
                     return bcrypt.checkpw(input_password.encode('utf-8'), stored_password.encode('utf-8'))
         return False
-
-
-    # the problem here is that we need to create new files for each users
-    # as the data shouldn't be shared throughout all users

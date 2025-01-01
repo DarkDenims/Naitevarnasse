@@ -55,7 +55,6 @@ class PasswordManager:
             print("[D]isplay Vault")
             print("[N]ew Credentials")
             print("[A]rchive Credentials")
-            print("[U]nhash Password")
             print("[L]ogout")
             print("[E]xit")
             
@@ -67,8 +66,6 @@ class PasswordManager:
                 self.addNewCredentials()
             elif choice == 'a':
                 self.archiveCredentials()
-            elif choice == 'u':
-                self.vaultManager.getPassword()
             elif choice == 'l':
                 self.loggedIn = False
             elif choice == 'e':
