@@ -85,3 +85,5 @@ class PasswordManager:
 if __name__ == "__main__":
     manager = PasswordManager()
     manager.mainMenu()
+
+# help lol cant decide on which UI and Database to use

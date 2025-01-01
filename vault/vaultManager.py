@@ -43,3 +43,5 @@ class VaultManager:
                     stored_password = user.get("password", "")
                     return bcrypt.checkpw(input_password.encode('utf-8'), stored_password.encode('utf-8'))
         return False
+
+# Gonna transfer to GraphQL
