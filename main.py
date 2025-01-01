@@ -86,4 +86,9 @@ if __name__ == "__main__":
     manager = PasswordManager()
     manager.mainMenu()
 
-# help lol cant decide on which UI and Database to use
+# mkay the tech stack will be
+# Cloud - Based Front-end: Vue.js
+# Standalone Front-end: Electron.js
+# Back-end: Flask
+# Stand-alone Database: SQLite
+# Cloud-based Database: Firebase
