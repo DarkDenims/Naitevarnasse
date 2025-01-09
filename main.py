@@ -90,5 +90,5 @@ if __name__ == "__main__":
 # Cloud - Based Front-end: Vue.js
 # Standalone Front-end: Electron.js
 # Back-end: Flask
-# Stand-alone Database: SQLite
 # Cloud-based Database: Firebase
+# Stand-alone Database: SQLite
