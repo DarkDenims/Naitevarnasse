@@ -3,11 +3,12 @@ from vault.vaultManager import VaultManager
 
 class PasswordManager:
     def __init__(self):
-        self.userHandling = UserHandling()
-        self.vaultManager = VaultManager()
-        self.loggedIn = False
+        self.user_handling = UserHandling()
+        self.vault_manager = None
+        self.logged_in = False
+        self.current_user = None
 
-    def mainMenu(self):
+    def main_menu(self):
         while True:
             print("\n=== Password Manager ===")
             print("[S]ignup")
@@ -33,58 +34,96 @@ class PasswordManager:
             username = input("Username: ")
             password = input("Password: ")
             
-            if self.userHandling.verifyLogin(username, password):
-                self.loggedIn = True
-                self.vaultMenu()
+            master_key = self.user_handling.verify_login(username, password)
+            if master_key:
+                self.logged_in = True
+                self.current_user = username
+                self.vault_manager = VaultManager(master_key, f'vault_{username}.json')
+                self.vault_menu()
                 break
             
             attempts -= 1
             print(f"Invalid credentials! {attempts} attempts remaining.")
 
     def signup(self):
-        userData = self.userHandling.createUser()
-        if userData:
-            # Save user data
-            print("Registration successful!")
+        user_data = self.user_handling.create_user()
+        if user_data:
+            print("Registration successful! Please login to continue.")
         else:
             print("Registration cancelled.")
 
-    def vaultMenu(self):
-        while self.loggedIn:
-            print("\n=== Vault Menu ===")
+    def vault_menu(self):
+        while self.logged_in:
+            print(f"\n=== Vault Menu ({self.current_user}) ===")
             print("[D]isplay Vault")
-            print("[N]ew Credentials")
-            print("[A]rchive Credentials")
+            print("[A]dd New Credentials")
+            print("[R]emove Credentials")
             print("[L]ogout")
             print("[E]xit")
             
             choice = input("Choice: ").lower()
             
-            if choice == 'd':
-                self.vaultManager.displayVault()
-            elif choice == 'n':
-                self.addNewCredentials()
-            elif choice == 'a':
-                self.archiveCredentials()
-            elif choice == 'l':
-                self.loggedIn = False
-            elif choice == 'e':
-                self.loggedIn = False
-                exit()
-            else:
-                print("Invalid choice!")
+            try:
+                if choice == 'd':
+                    self.vault_manager.display_vault()
+                elif choice == 'a':
+                    self.add_new_credentials()
+                elif choice == 'r':
+                    self.remove_credentials()
+                elif choice == 'l':
+                    self.logged_in = False
+                    self.current_user = None
+                    self.vault_manager = None
+                elif choice == 'e':
+                    self.logged_in = False
+                    exit()
+                else:
+                    print("Invalid choice!")
+            except Exception as e:
+                print(f"Error: {str(e)}")
+                logging.error(f"Error in vault menu: {str(e)}")
 
-    def addNewCredentials(self):
+    def add_new_credentials(self):
         print("\n=== Add New Credentials ===")
-        pass
+        try:
+            service = input("Service Name: ")
+            username = input("Service Username: ")
+            password = input("Service Password: ")
+            email = input("Service Email: ")
+            
+            if self.vault_manager.add_credentials(username, password, email, service):
+                print("Credentials added successfully!")
+            else:
+                print("Failed to add credentials.")
+                
+        except ValueError as e:
+            print(f"Error: {str(e)}")
+        except Exception as e:
+            print("An unexpected error occurred.")
+            logging.error(f"Error adding credentials: {str(e)}")
 
-    def archiveCredentials(self):
-        print("\n=== Archive Credentials ===")
-        pass
+    def remove_credentials(self):
+        print("\n=== Remove Credentials ===")
+        try:
+            service = input("Service Name: ")
+            username = input("Service Username: ")
+            
+            if self.vault_manager.delete_credentials(service, username):
+                print("Credentials removed successfully!")
+            else:
+                print("Credentials not found.")
+                
+        except Exception as e:
+            print("An error occurred while removing credentials.")
+            logging.error(f"Error removing credentials: {str(e)}")
 
 if __name__ == "__main__":
-    manager = PasswordManager()
-    manager.mainMenu()
+    try:
+        manager = PasswordManager()
+        manager.main_menu()
+    except Exception as e:
+        print(f"Fatal error: {str(e)}")
+        logging.error(f"Fatal error in main: {str(e)}")
 
 # mkay the tech stack will be
 # Cloud - Based Front-end: Vue.js
