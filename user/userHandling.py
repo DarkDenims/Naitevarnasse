@@ -56,6 +56,14 @@ class UserHandling:
     def _normalize_username(self, username: str) -> str:
         """Normalize username for consistent comparison."""
         return username.strip().lower()
+    
+    def clear_screen():        # Check the operating system
+        if os.name == 'nt':  # For Windows
+            os.system('cls')
+        else:
+            os.system('clear')
+    # yeah idk how to delay this yet
+
 
     def create_user(self) -> Optional[Dict]:
         """Create a new user with validated credentials and email."""
@@ -143,6 +151,7 @@ class UserHandling:
             logging.error(f"Error creating user: {str(e)}")
             print("An error occurred during registration.")
             return None
+        
         
 # Problem 1: multiple users with same username and email - fixed?
 # Problem 2: storing passwords in plaintext(fix when i have GUI?)
