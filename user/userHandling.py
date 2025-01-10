@@ -1,4 +1,5 @@
 import os
+import time
 import base64
 import json
 import logging
@@ -57,13 +58,12 @@ class UserHandling:
         """Normalize username for consistent comparison."""
         return username.strip().lower()
     
-    def clear_screen():        # Check the operating system
-        if os.name == 'nt':  # For Windows
+    def clear_screen():
+        time.sleep(5)
+        if os.name == 'nt':
             os.system('cls')
         else:
             os.system('clear')
-    # yeah idk how to delay this yet
-
 
     def create_user(self) -> Optional[Dict]:
         """Create a new user with validated credentials and email."""
@@ -99,7 +99,13 @@ class UserHandling:
             # Check for existing username (case-insensitive)
             if any(self._normalize_username(existing_user) == normalized_username 
                   for existing_user in data["users"]):
-                print("Username already exists!")
+                print("Username already exists!")    
+                time.sleep(2.5) # wait for 2.5 seconds or 5 seconds?
+                if os.name == 'nt':
+                    os.system('cls')
+                else:
+                    os.system('clear')
+                # might work?
                 return None
 
             # Password validation
