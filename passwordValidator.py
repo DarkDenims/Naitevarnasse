@@ -3,17 +3,13 @@ from typing import Tuple, List
 
 class PasswordValidator:
     def __init__(self):
-        """Initialize with configurable password requirements."""
         self.special_chars = '!@#$%^&*()-_=+[]{}|;:,.<>?/~`'
         self.min_length = 8
         self.max_length = 128  # Adding max length for security
         self.max_repeated_chars = 3  # Maximum times a character can be repeated consecutively
         
     def validate(self, password: str) -> Tuple[bool, List[str]]:
-        """
-        Validate password against security requirements.
-        Returns (is_valid, list_of_errors)
-        """
+        
         errors = []
         
         # Basic requirements
@@ -44,6 +40,8 @@ class PasswordValidator:
             r'12345', r'qwerty', r'password', r'admin', r'letmein',
             r'welcome', r'abc123', r'\d{6,}',  # 6 or more consecutive numbers
         ]
+        # idk might use seclists for this, but would take too long?
+        # not sure which one to use
         for pattern in common_patterns:
             if re.search(pattern, password.lower()):
                 errors.append("Contains common password pattern")
@@ -63,7 +61,6 @@ class PasswordValidator:
         return (len(errors) == 0, errors)
     
     def suggest_password(self) -> str:
-        """Generate a password suggestion that meets all requirements."""
         import random
         import string
         

@@ -13,7 +13,6 @@ from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
 
 class UserHandling:
     def __init__(self, users_file: str = 'users.json'):
-        """Initialize UserHandling with configuration."""
         self.users_file = users_file
         self.password_validator = PasswordValidator()
         self.max_login_attempts = 5
@@ -29,7 +28,6 @@ class UserHandling:
         self._initialize_users_file()
     
     def _initialize_users_file(self) -> None:
-        """Initialize the users file if it doesn't exist."""
         if not os.path.exists(self.users_file):
             with open(self.users_file, 'w') as f:
                 json.dump({
@@ -40,12 +38,10 @@ class UserHandling:
                 }, f, indent=4)
 
     def _is_valid_email(self, email: str) -> bool:
-        """Validate email format using regex pattern."""
         pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
         return bool(re.match(pattern, email))
 
     def _is_email_taken(self, email: str) -> bool:
-        """Check if email is already registered."""
         try:
             with open(self.users_file, 'r') as f:
                 data = json.load(f)
@@ -55,7 +51,6 @@ class UserHandling:
             return False
 
     def _normalize_username(self, username: str) -> str:
-        """Normalize username for consistent comparison."""
         return username.strip().lower()
     
     def clear_screen():
@@ -66,7 +61,6 @@ class UserHandling:
             os.system('clear')
 
     def create_user(self) -> Optional[Dict]:
-        """Create a new user with validated credentials and email."""
         print("\n=== User Registration ===")
         try:
             # Username validation with normalization
@@ -163,9 +157,7 @@ class UserHandling:
 # Problem 2: storing passwords in plaintext(fix when i have GUI?)
 # Problem 3: I still don't have a way to store the credentials according
 # to the user. I need to figure out a way to do that.
-
-# should i clear the screen after 5 seconds of having an invalid choice?
-
+# Problem 4: I need to figure out a way to store the master key for each user
 
 # i was wrong i dont need to make a new instance per User that's for the Cloud version
 # what im trying to create is a standalone version in the first place
