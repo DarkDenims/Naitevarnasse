@@ -128,6 +128,7 @@ if __name__ == "__main__":
 # mkay the tech stack will be
 # Cloud - Based Front-end: Vue.js
 # Standalone Front-end: Electron.js but i heard it's to bulky fudggeeee
+# Bad news may have to use something else called eel instead
 # Back-end: Flask
 # Cloud-based Database: Firebase
 # Stand-alone Database: SQLite
